@@ -10,50 +10,46 @@ using UnityEditor;
 
 public class EventManager : MonoBehaviour
 {
-    //[SerializeField] Text StartBtnText;
     [SerializeField] Texture2D Cursor_onbutton;
     [SerializeField] Vector2 Hotspot_onbutton;
     [SerializeField] Texture2D Cursor_normal;
     [SerializeField] Vector2 Hotspot_normal;
-    [SerializeField] float Force = 10.0f;
-    [SerializeField] GameObject Fireanim;
-    [SerializeField] int Explosionwait = 10;
-    [SerializeField] Rigidbody Testtube;
-    [SerializeField] Rigidbody Cork;
+    [SerializeField] Vector2 Max;
+    [SerializeField] Vector2 Min;
+    [SerializeField] List<Scene> OrderedScenes;
+    private static int scenecount=0;
 
-    void Start()
+    public void CubeScript()
     {
-        Fireanim.SetActive(false);
+        Transform Cube = GetComponent<Transform>();
+        Debug.Log(Cube);
     }
 
-    public void FireStart()
+    public void Restart()
     {
-        Fireanim.SetActive(true);
-        StartCoroutine(ExplosiveWait());
+        DontDestroyOnLoad(this);
+        SceneManager.LoadScene(OrderedScenes[scenecount].name);
     }
 
-    IEnumerator ExplosiveWait()
+    public void Back()
     {
-        yield return new WaitForSeconds(Explosionwait);
-        Explosion();
+        /*SceneManager.LoadScene("Level_Select");*/
     }
 
-    private void Explosion()
+    public void Next()
     {
-        Testtube.useGravity = true;
-        Testtube.isKinematic = false;
-        Cork.useGravity = true;
-        Cork.isKinematic = false;
-        Testtube.AddRelativeForce((new Vector3(0, 0, -1)) * Force, ForceMode.Impulse);
-        Cork.AddRelativeForce((new Vector3(0, 1, 0)) * Force, ForceMode.Impulse);
+      /*  DontDestroyOnLoad(this);
+        scenecount += 1;
+        SceneManager.LoadScene(OrderedScenes[scenecount].name);*/
     }
 
-
-    public void Restart(){
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    public void Home()
+    {
+        /*SceneManager.LoadScene("Home");*/
     }
 
-    public void Quit(){
+    public void Quit()
+    {
 #if UNITY_EDITOR
             EditorApplication.isPlaying = false;
 #else
@@ -61,22 +57,13 @@ public class EventManager : MonoBehaviour
 #endif
     }
 
-    /*public void Startbtn(){
-        string msg = StartBtnText.text;
-        if(msg == "START"){
-            msg = "STOP";
-            StartBtnText.text = msg;
-        }
-        else if(msg == "STOP"){
-            msg ="START";
-            StartBtnText.text = msg;
-        }
-    }*/
-    public void MouseOnButtonEnter(){
+    public void MouseOnButtonEnter()
+    {
         Cursor.SetCursor(Cursor_onbutton, Hotspot_onbutton, CursorMode.Auto);
     }
 
-     public void MouseOnButtonExit(){
+     public void MouseOnButtonExit()
+    {
         Cursor.SetCursor(Cursor_normal, Hotspot_normal, CursorMode.Auto);
      }
 }
