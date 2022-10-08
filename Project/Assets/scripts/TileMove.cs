@@ -10,6 +10,7 @@ public class TileMove : MonoBehaviour
     private void Start()
     {
         Maincamera = Camera.main;
+        
     }
     private void Update()
     {
