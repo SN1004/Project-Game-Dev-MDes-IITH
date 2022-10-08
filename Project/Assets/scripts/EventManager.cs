@@ -10,25 +10,20 @@ using UnityEditor;
 
 public class EventManager : MonoBehaviour
 {
-    [SerializeField] Texture2D Cursor_onbutton;
+    [SerializeField] Texture2D Cursor_onbutton;//To change cursor texture with use of event trigger
     [SerializeField] Vector2 Hotspot_onbutton;
     [SerializeField] Texture2D Cursor_normal;
     [SerializeField] Vector2 Hotspot_normal;
-    [SerializeField] Vector2 Max;
-    [SerializeField] Vector2 Min;
-    [SerializeField] List<Scene> OrderedScenes;
+    // For camera movement
+/*    [SerializeField] Vector2 Max;     
+    [SerializeField] Vector2 Min;*/    
+    [SerializeField] List<SceneAsset> OrderedScenes;
     private static int scenecount=0;
-
-    public void CubeScript()
-    {
-        Transform Cube = GetComponent<Transform>();
-        Debug.Log(Cube);
-    }
 
     public void Restart()
     {
-        DontDestroyOnLoad(this);
-        SceneManager.LoadScene(OrderedScenes[scenecount].name);
+        /*DontDestroyOnLoad(this);
+        SceneManager.LoadScene(OrderedScenes[scenecount].name);*/
     }
 
     public void Back()
