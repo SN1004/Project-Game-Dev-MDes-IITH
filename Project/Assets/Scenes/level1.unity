@@ -257,7 +257,7 @@ Transform:
   m_GameObject: {fileID: 33048260}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.8639818, y: 0.85116154, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -273,7 +273,7 @@ Animator:
   m_GameObject: {fileID: 33048260}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 614a1df2abd9e334ab46845ce5abe40a, type: 2}
+  m_Controller: {fileID: 9100000, guid: efa7696bc39e14646ac3f7610e02a469, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -336,7 +336,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 9.92016
+  orthographic size: 13.222228
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
