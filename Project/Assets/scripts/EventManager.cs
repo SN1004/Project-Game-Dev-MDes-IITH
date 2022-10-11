@@ -55,13 +55,11 @@ public class EventManager : MonoBehaviour
 
     public void MouseOnButtonEnter()
     {
-        Debug.Log("pointerenter");
         Cursor.SetCursor(Cursor_onbutton, Hotspot_onbutton, CursorMode.Auto);
     }
 
      public void MouseOnButtonExit()
      {
-        Debug.Log("pointerexit");
         Cursor.SetCursor(Cursor_normal, Hotspot_normal, CursorMode.Auto);
      }
 }
