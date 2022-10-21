@@ -11,6 +11,8 @@ public class TileMove : MonoBehaviour
     [SerializeField] Transform[] CurrentTilePos;
     [SerializeField] TextMeshProUGUI TimeText;
     [SerializeField] private int Num_Swaps = 21;
+    [SerializeField] private GameObject FinishPanel;
+    [SerializeField] private bool win = false;
 
     public static int ClockTime = 0;
     private static Vector3[] WinTilePos;
@@ -19,6 +21,7 @@ public class TileMove : MonoBehaviour
     private static bool Inti = true;
     private void Start()
     {
+        FinishPanel.SetActive(false);
         WinTilePos = new Vector3[CurrentTilePos.Length];
         Inti = true;
         Maincamera = Camera.main;
@@ -29,10 +32,13 @@ public class TileMove : MonoBehaviour
     private void Update()
     {
         if (Inti == false) 
-            if (Winchk())
+            if (Winchk()||win)
             {
                 Clock_work = false;
                 //Win = true
+                //SendMessage(Finish, ClockTime);
+                FinishPanel.SetActive(true);
+                FinishPanel.GetComponentInChildren<TextMeshProUGUI>().text = TimeText.text;
                 Debug.Log("win");
             }
 
@@ -58,7 +64,7 @@ public class TileMove : MonoBehaviour
         {
             if(CurrentTilePos[i].position != WinTilePos[i])
             {
-                // Win == false;
+                //Win == false;
                 return false;
             }
         }
@@ -90,6 +96,7 @@ public class TileMove : MonoBehaviour
         }
         else Inti = false;
     }
+
 
     IEnumerator Clock()
     {
