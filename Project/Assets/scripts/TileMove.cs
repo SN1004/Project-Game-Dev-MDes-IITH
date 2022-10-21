@@ -98,12 +98,16 @@ public class TileMove : MonoBehaviour
             yield return new WaitForSeconds(1);
             ClockTime ++;
             int min = ClockTime / 60;
+            int hour = min / 60;
             int sec = ClockTime % 60;
+            string strhour = hour.ToString();
             string strmin = min.ToString();
             string strsec = sec.ToString();
+            if (hour < 10) strhour = "0" + strhour;
             if (min < 10) strmin = "0" + strmin;
             if (sec < 10) strsec = "0" + strsec;
-            TimeText.text = strmin + ":" + strsec;
+            if (hour == 0 ) TimeText.text = strmin + ":" + strsec;
+            else TimeText.text = strhour + ":" +strmin + ":" + strsec;
         }
     }
 }
