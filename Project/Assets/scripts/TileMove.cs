@@ -12,8 +12,9 @@ public class TileMove : MonoBehaviour
     private static Vector3[] WinTilePos;
     [SerializeField] private int Num_Swaps = 21;
     [SerializeField] int ClockTime = 59;
-    [SerializeField] int WaitTime = 10;
+    [SerializeField] int WaitTime = 1;
     [SerializeField] TextMeshProUGUI TimeText;
+    private bool Clock_work = true;
     private Camera Maincamera;
     private static bool Inti = true;
     private void Start()
@@ -23,10 +24,11 @@ public class TileMove : MonoBehaviour
         Maincamera = Camera.main;
         for (int i = 0; i < CurrentTilePos.Length; i++) WinTilePos[i] = CurrentTilePos[i].position;
         Play();
-        Timer();
+        StartCoroutine(Clock());
     }
     private void Update()
     {
+        if (ClockTime <= 0) Clock_work = false;
         if (Inti == false) 
             if (Winchk())
             {
@@ -88,19 +90,15 @@ public class TileMove : MonoBehaviour
         }
         else Inti = false;
     }
-    private void Timer()
-    {
-        while (true)
-        {
-            if (ClockTime > 0) StartCoroutine(Clock());
-        }
-    }
 
     IEnumerator Clock()
     {
-        yield return new WaitForSeconds(WaitTime);
-        TimeText.text = "00:" + ClockTime.ToString();
-        Debug.Log(ClockTime);
-        ClockTime--;
+        while (Clock_work)
+        {
+            yield return new WaitForSeconds(WaitTime);
+            TimeText.text = "00:" + ClockTime.ToString();
+            Debug.Log(ClockTime);
+            ClockTime--;
+        }
     }
 }
