@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class TileMove : MonoBehaviour
 {
@@ -10,6 +11,9 @@ public class TileMove : MonoBehaviour
     [SerializeField] Transform[] CurrentTilePos;
     private static Vector3[] WinTilePos;
     [SerializeField] private int Num_Swaps = 21;
+    [SerializeField] int ClockTime = 59;
+    [SerializeField] int WaitTime = 10;
+    [SerializeField] TextMeshProUGUI TimeText;
     private Camera Maincamera;
     private static bool Inti = true;
     private void Start()
@@ -19,6 +23,7 @@ public class TileMove : MonoBehaviour
         Maincamera = Camera.main;
         for (int i = 0; i < CurrentTilePos.Length; i++) WinTilePos[i] = CurrentTilePos[i].position;
         Play();
+        Timer();
     }
     private void Update()
     {
@@ -82,5 +87,20 @@ public class TileMove : MonoBehaviour
             Debug.Log("error in random");
         }
         else Inti = false;
+    }
+    private void Timer()
+    {
+        while (true)
+        {
+            if (ClockTime > 0) StartCoroutine(Clock());
+        }
+    }
+
+    IEnumerator Clock()
+    {
+        yield return new WaitForSeconds(WaitTime);
+        TimeText.text = "00:" + ClockTime.ToString();
+        Debug.Log(ClockTime);
+        ClockTime--;
     }
 }
