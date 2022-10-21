@@ -9,11 +9,11 @@ public class TileMove : MonoBehaviour
     [SerializeField] private Transform emptySpace = null;
     [SerializeField] private int dist = 20;
     [SerializeField] Transform[] CurrentTilePos;
-    private static Vector3[] WinTilePos;
-    [SerializeField] private int Num_Swaps = 21;
-    [SerializeField] int ClockTime = 59;
-    [SerializeField] int WaitTime = 1;
     [SerializeField] TextMeshProUGUI TimeText;
+    [SerializeField] private int Num_Swaps = 21;
+
+    public static int ClockTime = 0;
+    private static Vector3[] WinTilePos;
     private bool Clock_work = true;
     private Camera Maincamera;
     private static bool Inti = true;
@@ -28,10 +28,10 @@ public class TileMove : MonoBehaviour
     }
     private void Update()
     {
-        if (ClockTime <= 0) Clock_work = false;
         if (Inti == false) 
             if (Winchk())
             {
+                Clock_work = false;
                 //Win = true
                 Debug.Log("win");
             }
@@ -95,10 +95,15 @@ public class TileMove : MonoBehaviour
     {
         while (Clock_work)
         {
-            yield return new WaitForSeconds(WaitTime);
-            TimeText.text = "00:" + ClockTime.ToString();
-            Debug.Log(ClockTime);
-            ClockTime--;
+            yield return new WaitForSeconds(1);
+            ClockTime ++;
+            int min = ClockTime / 60;
+            int sec = ClockTime % 60;
+            string strmin = min.ToString();
+            string strsec = sec.ToString();
+            if (min < 10) strmin = "0" + strmin;
+            if (sec < 10) strsec = "0" + strsec;
+            TimeText.text = strmin + ":" + strsec;
         }
     }
 }
