@@ -257,13 +257,13 @@ Rigidbody2D:
   m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDrag: 0
-  m_AngularDrag: 0.05
+  m_AngularDrag: 0
   m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!70 &33048263
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -10339,6 +10339,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1011923427}
   - component: {fileID: 1011923428}
+  - component: {fileID: 1011923429}
   m_Layer: 0
   m_Name: rock_2-03-03
   m_TagString: Untagged
@@ -10413,6 +10414,22 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!70 &1011923429
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1011923426}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_Size: {x: 8, y: 8}
+  m_Direction: 0
 --- !u!1 &1016856240
 GameObject:
   m_ObjectHideFlags: 0
@@ -20858,6 +20875,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2106790185}
   - component: {fileID: 2106790186}
+  - component: {fileID: 2106790187}
   m_Layer: 0
   m_Name: rock_1-03-03 (1)
   m_TagString: Untagged
@@ -20873,8 +20891,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2106790184}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 9.26, y: 2.35, z: 1.2297634}
-  m_LocalScale: {x: 0.64511925, y: 0.64511925, z: 0.64511925}
+  m_LocalPosition: {x: 9.3739, y: 2.35, z: 1.2297634}
+  m_LocalScale: {x: 0.6581507, y: 0.64511925, z: 0.64511925}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1581814319}
@@ -20932,6 +20950,22 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!70 &2106790187
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2106790184}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.0000019073486, y: -0.00000047683716}
+  m_Size: {x: 8, y: 10}
+  m_Direction: 0
 --- !u!1 &2116999170
 GameObject:
   m_ObjectHideFlags: 0
