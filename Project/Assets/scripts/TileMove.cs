@@ -46,7 +46,7 @@ public class TileMove : MonoBehaviour
                 FinishText.text = TimeText.text;
             }
 
-                if (Input.GetMouseButtonDown(0))
+        if ( Input.GetMouseButtonDown(0) && !(Winchk()||win) )
         {
             Ray ray = Maincamera.ScreenPointToRay(Input.mousePosition);
             RaycastHit2D Hit = Physics2D.Raycast(ray.origin, ray.direction);
