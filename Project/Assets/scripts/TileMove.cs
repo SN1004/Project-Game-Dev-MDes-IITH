@@ -44,7 +44,6 @@ public class TileMove : MonoBehaviour
                 //SendMessage(Finish, ClockTime);
                 FinishAnim.enabled = true;
                 FinishText.text = TimeText.text;
-                Debug.Log("win");
             }
 
                 if (Input.GetMouseButtonDown(0))
