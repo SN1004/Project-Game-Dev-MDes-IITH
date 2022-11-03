@@ -15,6 +15,7 @@ public class TileMove : MonoBehaviour
     [SerializeField] private TextMeshProUGUI FinishText;
     [SerializeField] private bool win = false;
     [SerializeField] private GameObject Frame;
+    [SerializeField] private AudioSource Tile_Sound;
 
     public static int ClockTime = 0;
     private static Vector3[] WinTilePos;
@@ -54,6 +55,7 @@ public class TileMove : MonoBehaviour
             {
                 if(Vector2.Distance(emptySpace.position, Hit.transform.position) < dist)
                 {
+                    Tile_Sound.Play();
                     Vector2 EmptySpacePosition = emptySpace.position;
                     emptySpace.position = Hit.transform.position;
                     Hit.transform.position = EmptySpacePosition;
