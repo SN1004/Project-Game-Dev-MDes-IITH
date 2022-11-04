@@ -5,27 +5,29 @@ using TMPro;
 
 public class TileMove : MonoBehaviour
 {
-
     [SerializeField] private Transform emptySpace = null;
     [SerializeField] private int dist = 20;
-    [SerializeField] Transform[] CurrentTilePos;
-    [SerializeField] TextMeshProUGUI TimeText;
+    [SerializeField] private Transform[] CurrentTilePos;
+    [SerializeField] private TextMeshProUGUI TimeText;
     [SerializeField] private int Num_Swaps = 21;
-    [SerializeField] private GameObject FinishPanel;
+    [SerializeField] private Animator FinishAnim;
+    [SerializeField] private TextMeshProUGUI FinishText;
     [SerializeField] private bool win = false;
+    [SerializeField] private GameObject Frame;
+    [SerializeField] private AudioSource Tile_Sound;
 
     public static int ClockTime = 0;
-    private static Vector3[] WinTilePos;
     private bool Clock_work = true;
     private Camera Maincamera;
-    private static bool Inti = true;
+    private static bool Inti;
+
     private void Start()
     {
-        FinishPanel.SetActive(false);
-        WinTilePos = new Vector3[CurrentTilePos.Length];
+        Inti = true;
+        Frame.SetActive(false);
+        FinishAnim.enabled = false;
         Inti = true;
         Maincamera = Camera.main;
-        for (int i = 0; i < CurrentTilePos.Length; i++) WinTilePos[i] = CurrentTilePos[i].position;
         Play();
         StartCoroutine(Clock());
     }
@@ -34,15 +36,15 @@ public class TileMove : MonoBehaviour
         if (Inti == false) 
             if (Winchk()||win)
             {
+                Frame.SetActive(true);
                 Clock_work = false;
                 //Win = true
                 //SendMessage(Finish, ClockTime);
-                FinishPanel.SetActive(true);
-                FinishPanel.GetComponentInChildren<TextMeshProUGUI>().text = TimeText.text;
-                Debug.Log("win");
+                FinishAnim.enabled = true;
+                FinishText.text = TimeText.text;
             }
 
-                if (Input.GetMouseButtonDown(0))
+        if ( Input.GetMouseButtonDown(0) && !(Winchk()||win) )
         {
             Ray ray = Maincamera.ScreenPointToRay(Input.mousePosition);
             RaycastHit2D Hit = Physics2D.Raycast(ray.origin, ray.direction);
@@ -50,7 +52,8 @@ public class TileMove : MonoBehaviour
             {
                 if(Vector2.Distance(emptySpace.position, Hit.transform.position) < dist)
                 {
-                    Vector2 EmptySpacePosition = emptySpace.position;
+                    if(Tile_Sound.clip !=null) Tile_Sound.Play();
+                    Vector3 EmptySpacePosition = emptySpace.position;
                     emptySpace.position = Hit.transform.position;
                     Hit.transform.position = EmptySpacePosition;
                 }
@@ -62,7 +65,7 @@ public class TileMove : MonoBehaviour
     {
         for (int i = 0; i < CurrentTilePos.Length; i++)
         {
-            if(CurrentTilePos[i].position != WinTilePos[i])
+            if(CurrentTilePos[i].localPosition.x > 4 || CurrentTilePos[i].localPosition.y > 4 )
             {
                 //Win == false;
                 return false;
