@@ -20,6 +20,7 @@ public class TileMove : MonoBehaviour
     private bool Clock_work = true;
     private Camera Maincamera;
     private static bool Inti;
+    private static bool saved = false;
 
     private void Start()
     {
@@ -42,6 +43,11 @@ public class TileMove : MonoBehaviour
                 //SendMessage(Finish, ClockTime);
                 FinishAnim.enabled = true;
                 FinishText.text = TimeText.text;
+                if(!saved)
+                {
+                    EventManager.WriteString(TimeText.text);
+                    saved = true;
+                }
             }
 
         if ( Input.GetMouseButtonDown(0) && !(Winchk()||win) )

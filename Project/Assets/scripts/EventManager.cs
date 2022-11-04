@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -10,10 +11,10 @@ using UnityEditor;
 
 public class EventManager : MonoBehaviour
 {
-    [SerializeField] Texture2D Cursor_onbutton;//To change cursor texture with use of event trigger
-    [SerializeField] Vector2 Hotspot_onbutton;
-    [SerializeField] Texture2D Cursor_normal;
-    [SerializeField] Vector2 Hotspot_normal;
+    [SerializeField] private Texture2D Cursor_onbutton;//To change cursor texture with use of event trigger
+    [SerializeField] private Vector2 Hotspot_onbutton;
+    [SerializeField] private Texture2D Cursor_normal;
+    [SerializeField] private Vector2 Hotspot_normal;
     [SerializeField] private AudioSource Button_Sound;
 
     // For camera movement
@@ -65,8 +66,33 @@ public class EventManager : MonoBehaviour
         Cursor.SetCursor(Cursor_onbutton, Hotspot_onbutton, CursorMode.Auto);
     }
 
-     public void MouseOnButtonExit()
+    public void MouseOnButtonExit()
     {
-        Cursor.SetCursor(Cursor_normal, Hotspot_normal, CursorMode.Auto);
-     }
+    Cursor.SetCursor(Cursor_normal, Hotspot_normal, CursorMode.Auto);
+    }
+
+    public static void WriteString(string text)
+    {
+        string path = "Assets/level 2_/highscore.txt";
+        //Write some text to the test.txt file
+        StreamWriter writer = new StreamWriter(path, true);
+        writer.WriteLine(text);
+        writer.Close();
+        /*//Re-import the file to update the reference in the editor
+        AssetDatabase.ImportAsset(path);
+        TextAsset asset = (TextAsset)Resources.Load(path);
+        //Print the text from the file
+        Debug.Log(asset.text);*/
+    }
+    public static string ReadString()
+    {
+        string text;
+        string path = "Assets/Resources/test.txt";
+        //Read the text from directly from the test.txt file
+        StreamReader reader = new StreamReader(path);
+        text = reader.ReadToEnd();
+        Debug.Log(text); 
+        reader.Close();
+        return text;
+    }
 }
