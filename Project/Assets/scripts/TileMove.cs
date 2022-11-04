@@ -5,11 +5,10 @@ using TMPro;
 
 public class TileMove : MonoBehaviour
 {
-
     [SerializeField] private Transform emptySpace = null;
     [SerializeField] private int dist = 20;
-    [SerializeField] Transform[] CurrentTilePos;
-    [SerializeField] TextMeshProUGUI TimeText;
+    [SerializeField] private Transform[] CurrentTilePos;
+    [SerializeField] private TextMeshProUGUI TimeText;
     [SerializeField] private int Num_Swaps = 21;
     [SerializeField] private Animator FinishAnim;
     [SerializeField] private TextMeshProUGUI FinishText;
@@ -18,18 +17,17 @@ public class TileMove : MonoBehaviour
     [SerializeField] private AudioSource Tile_Sound;
 
     public static int ClockTime = 0;
-    private static Vector3[] WinTilePos;
     private bool Clock_work = true;
     private Camera Maincamera;
-    private static bool Inti = true;
+    private static bool Inti;
+
     private void Start()
     {
+        Inti = true;
         Frame.SetActive(false);
         FinishAnim.enabled = false;
-        WinTilePos = new Vector3[CurrentTilePos.Length];
         Inti = true;
         Maincamera = Camera.main;
-        for (int i = 0; i < CurrentTilePos.Length; i++) WinTilePos[i] = CurrentTilePos[i].position;
         Play();
         StartCoroutine(Clock());
     }
@@ -54,8 +52,8 @@ public class TileMove : MonoBehaviour
             {
                 if(Vector2.Distance(emptySpace.position, Hit.transform.position) < dist)
                 {
-                    Tile_Sound.Play();
-                    Vector2 EmptySpacePosition = emptySpace.position;
+                    if(Tile_Sound.clip !=null) Tile_Sound.Play();
+                    Vector3 EmptySpacePosition = emptySpace.position;
                     emptySpace.position = Hit.transform.position;
                     Hit.transform.position = EmptySpacePosition;
                 }
@@ -67,7 +65,7 @@ public class TileMove : MonoBehaviour
     {
         for (int i = 0; i < CurrentTilePos.Length; i++)
         {
-            if(CurrentTilePos[i].position != WinTilePos[i])
+            if(CurrentTilePos[i].localPosition.x > 4 || CurrentTilePos[i].localPosition.y > 4 )
             {
                 //Win == false;
                 return false;
