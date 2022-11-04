@@ -4,15 +4,10 @@ using UnityEngine;
 
 public class collect_item : MonoBehaviour
 {
+    
     // Start is called before the first frame update
-    void Start()
+    public void OnTriggerEnter(Collider other)
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        if (CompareTag("player")) { }
     }
 }
