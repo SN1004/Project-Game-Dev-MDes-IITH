@@ -71,7 +71,7 @@ public class EventManager : MonoBehaviour
     Cursor.SetCursor(Cursor_normal, Hotspot_normal, CursorMode.Auto);
     }
 
-    public static void WriteString(string text)
+    public static void WriteFile(string text)
     {
         string path = "Assets/level 2_/highscore.txt";
         //Write some text to the test.txt file
@@ -84,15 +84,20 @@ public class EventManager : MonoBehaviour
         //Print the text from the file
         Debug.Log(asset.text);*/
     }
-    public static string ReadString()
+    public static int ReadFile()
     {
         string text;
-        string path = "Assets/Resources/test.txt";
+        string path = "Assets/level 2_/highscore.txt";
         //Read the text from directly from the test.txt file
         StreamReader reader = new StreamReader(path);
-        text = reader.ReadToEnd();
-        Debug.Log(text); 
+        text = reader.ReadLine();
         reader.Close();
-        return text;
+        int time = int.Parse(text);
+        return time;
+    }
+    public static void CleanFile()
+    {
+        string path = "Assets/level 2_/highscore.txt";
+        File.WriteAllText(path, "");
     }
 }

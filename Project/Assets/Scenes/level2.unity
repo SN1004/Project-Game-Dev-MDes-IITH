@@ -36184,6 +36184,7 @@ MonoBehaviour:
   Num_Swaps: 33
   FinishAnim: {fileID: 1242205463}
   FinishText: {fileID: 153438247}
+  HighScoreText: {fileID: 1709646382}
   win: 0
   Frame: {fileID: 951783389}
   Tile_Sound: {fileID: 1752778382}
