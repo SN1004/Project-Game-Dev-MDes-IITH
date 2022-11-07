@@ -3,7 +3,12 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - bone2
+  - bone4
+  - bone5
+  - bone3
+  - bone1
   layers:
   - Default
   - TransparentFX
