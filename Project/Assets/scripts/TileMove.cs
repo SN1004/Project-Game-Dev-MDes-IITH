@@ -12,14 +12,16 @@ public class TileMove : MonoBehaviour
     [SerializeField] private int Num_Swaps = 21;
     [SerializeField] private Animator FinishAnim;
     [SerializeField] private TextMeshProUGUI FinishText;
+    [SerializeField] private TextMeshProUGUI HighScoreText;
     [SerializeField] private bool win = false;
     [SerializeField] private GameObject Frame;
     [SerializeField] private AudioSource Tile_Sound;
 
-    public static int ClockTime = 0;
+    public int ClockTime = 0;
     private bool Clock_work = true;
     private Camera Maincamera;
     private static bool Inti;
+    private static bool saved = false;
 
     private void Start()
     {
@@ -36,12 +38,26 @@ public class TileMove : MonoBehaviour
         if (Inti == false) 
             if (Winchk()||win)
             {
-                Frame.SetActive(true);
                 Clock_work = false;
+                Frame.SetActive(true);
                 //Win = true
                 //SendMessage(Finish, ClockTime);
                 FinishAnim.enabled = true;
                 FinishText.text = TimeText.text;
+                if(!saved)
+                {
+                    EventManager.WriteFile(ClockTime.ToString());
+                    saved = true;
+                }
+                else
+                {
+                    int highscore = EventManager.ReadFile();
+                    if (highscore > ClockTime) highscore = ClockTime;
+                    EventManager.CleanFile();
+                    EventManager.WriteFile(highscore.ToString());
+                    TimeToText(highscore, HighScoreText);
+                }
+
             }
 
         if ( Input.GetMouseButtonDown(0) && !(Winchk()||win) )
@@ -106,18 +122,23 @@ public class TileMove : MonoBehaviour
         while (Clock_work)
         {
             yield return new WaitForSeconds(1);
-            ClockTime ++;
-            int min = ClockTime / 60;
-            int hour = min / 60;
-            int sec = ClockTime % 60;
-            string strhour = hour.ToString();
-            string strmin = min.ToString();
-            string strsec = sec.ToString();
-            if (hour < 10) strhour = "0" + strhour;
-            if (min < 10) strmin = "0" + strmin;
-            if (sec < 10) strsec = "0" + strsec;
-            if (hour == 0 ) TimeText.text = strmin + ":" + strsec;
-            else TimeText.text = strhour + ":" +strmin + ":" + strsec;
+            if(Clock_work) ClockTime ++;
+            TimeToText(ClockTime, TimeText);
         }
+    }
+
+    private void TimeToText(int TimeValue, TextMeshProUGUI TextBox)
+    {
+        int min = TimeValue / 60;
+        int hour = min / 60;
+        int sec = TimeValue % 60;
+        string strhour = hour.ToString();
+        string strmin = min.ToString();
+        string strsec = sec.ToString();
+        if (hour < 10) strhour = "0" + strhour;
+        if (min < 10) strmin = "0" + strmin;
+        if (sec < 10) strsec = "0" + strsec;
+        if (hour == 0) TextBox.text = strmin + ":" + strsec;
+        else TextBox.text = strhour + ":" + strmin + ":" + strsec;
     }
 }
