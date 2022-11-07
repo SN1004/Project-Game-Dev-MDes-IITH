@@ -71,7 +71,10 @@ public class player_collect : MonoBehaviour
             collection_completed = true;
             total_time = (int)timer;
         }
-        timer += Time.deltaTime;
-        tm.text = (int)timer + "s";
+        else
+        {
+            timer += Time.deltaTime;
+            tm.text = (int)timer + "s";
+        }
     }
 }
