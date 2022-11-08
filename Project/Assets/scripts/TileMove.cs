@@ -17,7 +17,7 @@ public class TileMove : MonoBehaviour
     [SerializeField] private GameObject Frame;
     [SerializeField] private AudioSource Tile_Sound;
 
-    public int ClockTime = 0;
+    private int ClockTime = -23;
     private bool Clock_work = true;
     private Camera Maincamera;
     private static bool Inti;
@@ -33,6 +33,7 @@ public class TileMove : MonoBehaviour
         Play();
         StartCoroutine(Clock());
     }
+    
     private void Update()
     {
         if (Inti == false) 
