@@ -29,7 +29,7 @@ public class EventManager : MonoBehaviour
 
     private void Update()
     {
-        if(SceneManager.GetActiveScene().name == "level2")
+        if(SceneManager.GetActiveScene().name == "LevelSelect")
         {
             Debug.Log("i am in");
             Level2SelectButton = GameObject.FindGameObjectWithTag("GameCanvas");
@@ -39,7 +39,16 @@ public class EventManager : MonoBehaviour
 
     public void Level1Select()
     {
+        Button_Sound.Play();
         SceneManager.LoadScene("level1");
+        DontDestroyOnLoad(this);
+    }
+
+    public void Level2Select()
+    {
+        Button_Sound.Play();
+        SceneManager.LoadScene("level2");
+        DontDestroyOnLoad(this);
     }
 
     public void Restart()
@@ -52,16 +61,16 @@ public class EventManager : MonoBehaviour
     public void Back()
     {
         Button_Sound.Play();
-        SceneManager.LoadScene("Level_Select");
+        SceneManager.LoadScene("LevelSelect");
         DontDestroyOnLoad(this);
     }
 
     public void Next()
     {
-          Button_Sound.Play();
-          scenecount += 1;
-          SceneManager.LoadScene(OrderedScenes[scenecount].name);
-          DontDestroyOnLoad(this);
+        Button_Sound.Play();
+        scenecount += 1;
+        SceneManager.LoadScene(OrderedScenes[scenecount].name);
+        DontDestroyOnLoad(this);
     }
 
     public void Home()
