@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEditor.Sprites;
 
 public class bone1_random : MonoBehaviour
 {
