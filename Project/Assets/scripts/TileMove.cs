@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
 
 public class TileMove : MonoBehaviour
@@ -16,6 +17,7 @@ public class TileMove : MonoBehaviour
     [SerializeField] private bool win = false;
     [SerializeField] private GameObject Frame;
     [SerializeField] private AudioSource Tile_Sound;
+    [SerializeField] private Button NextButton;
 
     private int ClockTime = -23;
     private bool Clock_work = true;
@@ -25,6 +27,7 @@ public class TileMove : MonoBehaviour
 
     private void Start()
     {
+        NextButton.interactable = false;
         Inti = true;
         Frame.SetActive(false);
         FinishAnim.enabled = false;
@@ -45,6 +48,7 @@ public class TileMove : MonoBehaviour
                 //SendMessage(Finish, ClockTime);
                 FinishAnim.enabled = true;
                 FinishText.text = TimeText.text;
+                NextButton.interactable = true;
                 if(!saved)
                 {
                     EventManager.WriteFile(ClockTime.ToString());

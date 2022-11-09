@@ -16,16 +16,14 @@ public class EventManager : MonoBehaviour
     [SerializeField] private Texture2D Cursor_normal;
     [SerializeField] private Vector2 Hotspot_normal;
     [SerializeField] private AudioSource Button_Sound;
-    
 
     // For camera movement
     /*    [SerializeField] Vector2 Max;     
         [SerializeField] Vector2 Min;*/
-    [SerializeField] List<SceneAsset> OrderedScenes;
-    private static List<SceneAsset> OrderedSceneArray;
     private static int scenecount=0;
     public static bool Level2Open = false;
     private GameObject Level2SelectButton;
+    
 
     private void Update()
     {
@@ -41,43 +39,37 @@ public class EventManager : MonoBehaviour
     {
         Button_Sound.Play();
         SceneManager.LoadScene("level1");
-        DontDestroyOnLoad(this);
     }
 
     public void Level2Select()
     {
         Button_Sound.Play();
         SceneManager.LoadScene("level2");
-        DontDestroyOnLoad(this);
     }
 
     public void Restart()
     {
         Button_Sound.Play();
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-        DontDestroyOnLoad(this);
     }
 
     public void Back()
     {
         Button_Sound.Play();
         SceneManager.LoadScene("LevelSelect");
-        DontDestroyOnLoad(this);
     }
 
     public void Next()
     {
         Button_Sound.Play();
         scenecount += 1;
-        SceneManager.LoadScene(OrderedScenes[scenecount].name);
-        DontDestroyOnLoad(this);
+        SceneManager.LoadScene("Ending");
     }
 
     public void Home()
     {
         Button_Sound.Play();
         SceneManager.LoadScene("Home");
-        DontDestroyOnLoad(this);
     }
 
     public void Quit()
