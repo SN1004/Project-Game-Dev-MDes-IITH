@@ -4,11 +4,7 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - bone2
-  - bone4
-  - bone5
-  - bone3
-  - bone1
+  - GameCanvas
   layers:
   - Default
   - TransparentFX
