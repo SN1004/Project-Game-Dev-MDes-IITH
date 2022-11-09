@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class player_collect : MonoBehaviour
 {
@@ -70,6 +71,7 @@ public class player_collect : MonoBehaviour
         {
             collection_completed = true;
             total_time = (int)timer;
+            SceneManager.LoadScene("level2");
         }
         else
         {
