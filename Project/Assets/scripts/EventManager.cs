@@ -103,9 +103,14 @@ public class EventManager : MonoBehaviour
         Cursor.SetCursor(Cursor_normal, Hotspot_normal, CursorMode.Auto);
     }
 
+    private static string DataPath()
+    {
+        return Application.persistentDataPath + "/highscore.txt";
+    }
+
     public static void WriteFile(string text)
     {
-        string path = "Assets/level 2_/highscore.txt";
+        string path = DataPath();
         //Write some text to the test.txt file
         StreamWriter writer = new StreamWriter(path, true);
         writer.WriteLine(text);
@@ -119,7 +124,7 @@ public class EventManager : MonoBehaviour
     public static int ReadFile()
     {
         string text;
-        string path = "Assets/level 2_/highscore.txt";
+        string path = DataPath();
         //Read the text from directly from the test.txt file
         StreamReader reader = new StreamReader(path);
         text = reader.ReadLine();
@@ -129,7 +134,7 @@ public class EventManager : MonoBehaviour
     }
     public static void CleanFile()
     {
-        string path = "Assets/level 2_/highscore.txt";
+        string path = DataPath();
         File.WriteAllText(path, "");
     }
 }
