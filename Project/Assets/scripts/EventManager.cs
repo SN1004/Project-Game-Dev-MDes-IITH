@@ -35,6 +35,17 @@ public class EventManager : MonoBehaviour
         }
     }
 
+    public void BackHome()
+    {
+        SceneManager.LoadScene("Home");
+    }
+
+    public void LevelSelect()
+    {
+        Button_Sound.Play();
+        SceneManager.LoadScene("LevelSelect");
+    }
+
     public void Level1Select()
     {
         Button_Sound.Play();
