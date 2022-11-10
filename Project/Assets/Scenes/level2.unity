@@ -15400,6 +15400,72 @@ Transform:
   m_Father: {fileID: 951783390}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &519595036
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 561877018}
+    m_Modifications:
+    - target: {fileID: 1576116768504317234, guid: 022fea1cfb90eb94aa9da3cd24a6d1e8, type: 3}
+      propertyPath: m_Name
+      value: VideoPlayer
+      objectReference: {fileID: 0}
+    - target: {fileID: 1576116768504317235, guid: 022fea1cfb90eb94aa9da3cd24a6d1e8, type: 3}
+      propertyPath: m_VideoClip
+      value: 
+      objectReference: {fileID: 32900000, guid: d594b23d40b234344972daa0fdd8c36f, type: 3}
+    - target: {fileID: 1576116768504317236, guid: 022fea1cfb90eb94aa9da3cd24a6d1e8, type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1576116768504317236, guid: 022fea1cfb90eb94aa9da3cd24a6d1e8, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1576116768504317236, guid: 022fea1cfb90eb94aa9da3cd24a6d1e8, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1576116768504317236, guid: 022fea1cfb90eb94aa9da3cd24a6d1e8, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 1576116768504317236, guid: 022fea1cfb90eb94aa9da3cd24a6d1e8, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1576116768504317236, guid: 022fea1cfb90eb94aa9da3cd24a6d1e8, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1576116768504317236, guid: 022fea1cfb90eb94aa9da3cd24a6d1e8, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1576116768504317236, guid: 022fea1cfb90eb94aa9da3cd24a6d1e8, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1576116768504317236, guid: 022fea1cfb90eb94aa9da3cd24a6d1e8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1576116768504317236, guid: 022fea1cfb90eb94aa9da3cd24a6d1e8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1576116768504317236, guid: 022fea1cfb90eb94aa9da3cd24a6d1e8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 022fea1cfb90eb94aa9da3cd24a6d1e8, type: 3}
+--- !u!4 &519595037 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1576116768504317236, guid: 022fea1cfb90eb94aa9da3cd24a6d1e8, type: 3}
+  m_PrefabInstance: {fileID: 519595036}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &545657293
 GameObject:
   m_ObjectHideFlags: 0
@@ -20242,7 +20308,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1242205461}
-  - {fileID: 1546876284}
+  - {fileID: 519595037}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -36334,6 +36400,10 @@ MonoBehaviour:
   Cursor_normal: {fileID: 0}
   Hotspot_normal: {x: 0, y: 0}
   Button_Sound: {fileID: 2071202168}
+  Video: {fileID: 0}
+  Play: {fileID: 0}
+  Pause: {fileID: 0}
+  PlayPauseButton: {fileID: 0}
 --- !u!114 &1183620432
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -37456,73 +37526,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1530200118}
   m_CullTransparentMesh: 1
---- !u!1 &1546876282
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1546876284}
-  - component: {fileID: 1546876283}
-  m_Layer: 0
-  m_Name: VideoPlayer
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!328 &1546876283
-VideoPlayer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1546876282}
-  m_Enabled: 1
-  m_VideoClip: {fileID: 32900000, guid: d594b23d40b234344972daa0fdd8c36f, type: 3}
-  m_TargetCameraAlpha: 1
-  m_TargetCamera3DLayout: 0
-  m_TargetCamera: {fileID: 2087935442}
-  m_TargetTexture: {fileID: 0}
-  m_TimeReference: 0
-  m_TargetMaterialRenderer: {fileID: 0}
-  m_TargetMaterialProperty: <noninit>
-  m_RenderMode: 1
-  m_AspectRatio: 3
-  m_DataSource: 0
-  m_PlaybackSpeed: 1
-  m_AudioOutputMode: 2
-  m_TargetAudioSources:
-  - {fileID: 0}
-  m_DirectAudioVolumes:
-  - 1
-  m_Url: 
-  m_EnabledAudioTracks: 01
-  m_DirectAudioMutes: 00
-  m_ControlledAudioTrackCount: 1
-  m_PlayOnAwake: 1
-  m_SkipOnDrop: 1
-  m_Looping: 0
-  m_WaitForFirstFrame: 1
-  m_FrameReadyEventEnabled: 0
-  m_VideoShaders: []
---- !u!4 &1546876284
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1546876282}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -90}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 561877018}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1574123478
 GameObject:
   m_ObjectHideFlags: 0
