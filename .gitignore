@@ -72,3 +72,6 @@ crashlytics-build.properties
 [Aa]ssets/[Ss]treamingAssets/aa/*
 Project/Assets/level 2_/highscore.txt
 Project/Assets/level 2_/highscore.txt.meta
+Project/Assets/StreamingAssets.meta
+Project/Assets/StreamingAssets/UnityServicesProjectConfiguration.json
+Project/Assets/StreamingAssets/UnityServicesProjectConfiguration.json.meta
