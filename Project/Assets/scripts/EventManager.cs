@@ -4,6 +4,7 @@ using System.IO;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using UnityEngine.Video;
 
 #if UNITY_EDITOR
 using UnityEditor;
@@ -16,7 +17,9 @@ public class EventManager : MonoBehaviour
     [SerializeField] private Texture2D Cursor_normal;
     [SerializeField] private Vector2 Hotspot_normal;
     [SerializeField] private AudioSource Button_Sound;
-
+    [SerializeField] private VideoPlayer Video;
+    [SerializeField] private Sprite Play, Pause;
+    [SerializeField] private Image PlayPauseButton;
     // For camera movement
     /*    [SerializeField] Vector2 Max;     
         [SerializeField] Vector2 Min;*/
@@ -33,6 +36,21 @@ public class EventManager : MonoBehaviour
             Level2SelectButton = GameObject.FindGameObjectWithTag("GameCanvas");
             Level2SelectButton.GetComponent<Button>().interactable = Level2Open;
         }
+    }
+
+    public void PlayPauseFunction()
+    {
+        if (Video != null)
+            if (Video.isPlaying)
+            {
+                PlayPauseButton.sprite = Pause;
+                Video.Pause();
+            }
+            else
+            {
+                PlayPauseButton.sprite = Play;
+                Video.Play();
+            }
     }
 
     public void BackHome()
