@@ -7047,7 +7047,6 @@ GameObject:
   m_Component:
   - component: {fileID: 585586520}
   - component: {fileID: 585586521}
-  - component: {fileID: 585586522}
   m_Layer: 0
   m_Name: bush_2-03-03 (5)
   m_TagString: Untagged
@@ -7122,22 +7121,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!58 &585586522
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 585586519}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.00000047683716}
-  serializedVersion: 2
-  m_Radius: 3
 --- !u!1 &588197260
 GameObject:
   m_ObjectHideFlags: 0
@@ -7232,7 +7215,6 @@ GameObject:
   m_Component:
   - component: {fileID: 592184056}
   - component: {fileID: 592184057}
-  - component: {fileID: 592184058}
   m_Layer: 0
   m_Name: bush_5-03-03 (3)
   m_TagString: Untagged
@@ -7307,22 +7289,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!58 &592184058
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 592184055}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 3
 --- !u!1 &594842573
 GameObject:
   m_ObjectHideFlags: 0
@@ -12085,7 +12051,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 2bc724b18a6957442ba4fad49f8b47fa, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -12837,7 +12803,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 3
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: a87d126688e170241b5f8c33d7413e26, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -15526,7 +15492,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1177771496}
   - component: {fileID: 1177771497}
-  - component: {fileID: 1177771498}
   m_Layer: 0
   m_Name: bush_5-03-03 (2)
   m_TagString: Untagged
@@ -15601,22 +15566,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!58 &1177771498
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1177771495}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 3
 --- !u!1 &1187779406
 GameObject:
   m_ObjectHideFlags: 0
@@ -17826,7 +17775,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1421719390}
   - component: {fileID: 1421719391}
-  - component: {fileID: 1421719392}
   m_Layer: 0
   m_Name: bush_3-03-03 (2)
   m_TagString: Untagged
@@ -17901,22 +17849,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!58 &1421719392
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1421719389}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 3
 --- !u!1 &1434043025
 GameObject:
   m_ObjectHideFlags: 0
@@ -22499,7 +22431,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1957466084}
   - component: {fileID: 1957466085}
-  - component: {fileID: 1957466086}
   m_Layer: 0
   m_Name: bush_1-03-03
   m_TagString: Untagged
@@ -22574,22 +22505,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!70 &1957466086
-CapsuleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1957466083}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -2, y: 0}
-  m_Size: {x: 5, y: 15}
-  m_Direction: 0
 --- !u!1 &1964359895
 GameObject:
   m_ObjectHideFlags: 0
@@ -24607,7 +24522,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 2bc724b18a6957442ba4fad49f8b47fa, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 1
