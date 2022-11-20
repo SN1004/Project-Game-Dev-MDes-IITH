@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class player_movement : MonoBehaviour
 {
-    public  Rigidbody2D rd;
+    public  Rigidbody rd;
 
     public float move_speed = 5f;
+    public float MoveZ = 1.0f; 
 
-    Vector2 movement;
+    [SerializeField] private Vector3 movement;
 
     public Animator animator;
 
@@ -35,7 +36,10 @@ public class player_movement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        rd.MovePosition(rd.position + movement * move_speed * Time.fixedDeltaTime);
-        
+        if(movement.x != 0 &&  movement.y != 0)
+        {
+            movement.z += MoveZ;
+            rd.MovePosition(rd.position + movement * move_speed * Time.fixedDeltaTime);
+        }
     }
 }
