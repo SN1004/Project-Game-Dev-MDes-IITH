@@ -5,10 +5,14 @@ using UnityEngine;
 public class collect_item : MonoBehaviour
 {
     public GameObject bone;
-    // Start is called before the first frame update
+
+    private void Start()
+    {
+        bone = this.gameObject;
+    }
     public void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player")) 
+        if (other.gameObject.CompareTag("Player")) 
         {
             bone.SetActive(false);
         }

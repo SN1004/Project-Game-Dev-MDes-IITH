@@ -7,7 +7,7 @@ public class player_movement : MonoBehaviour
     public  Rigidbody rd;
 
     public float move_speed = 5f;
-    public float MoveZ = 1.0f; 
+    /*public float MoveZ = 1.0f; */
 
     [SerializeField] private Vector3 movement;
 
@@ -16,7 +16,7 @@ public class player_movement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        rd = GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
@@ -36,10 +36,7 @@ public class player_movement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if(movement.x != 0 &&  movement.y != 0)
-        {
-            movement.z += MoveZ;
-            rd.MovePosition(rd.position + movement * move_speed * Time.fixedDeltaTime);
-        }
+        movement.z = movement.y;
+        rd.MovePosition(rd.position + (movement * move_speed * Time.fixedDeltaTime));
     }
 }
