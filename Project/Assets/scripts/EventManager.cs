@@ -31,7 +31,6 @@ public class EventManager : MonoBehaviour
     {
         if(SceneManager.GetActiveScene().name == "LevelSelect")
         {
-            Debug.Log("i am in");
             Level2SelectButton = GameObject.FindGameObjectWithTag("GameCanvas");
             Level2SelectButton.GetComponent<Button>().interactable = Level2Open;
         }
@@ -52,9 +51,9 @@ public class EventManager : MonoBehaviour
             }
     }
 
-    public static void LoadLevel2()
+    public static void LoadScene2()
     {
-        SceneManager.LoadScene("level2");
+        SceneManager.LoadScene("Scene2");
     }
 
     public static void LoadLevel1()
@@ -74,41 +73,36 @@ public class EventManager : MonoBehaviour
 
     public void Level1Select()
     {
-        SceneManager.LoadScene("level1");
+        SceneManager.LoadScene("Intro");
     }
 
     public void Level2Select()
     {
-        SceneManager.LoadScene("level2");
+        SceneManager.LoadScene("Scene2");
     }
 
     public void Restart()
     {
-        Button_Sound.Play();
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     public void Back()
     {
-        Button_Sound.Play();
         SceneManager.LoadScene("LevelSelect");
     }
 
     public void Next()
     {
-        Button_Sound.Play();
         SceneManager.LoadScene("Ending");
     }
 
     public void Home()
     {
-        Button_Sound.Play();
         SceneManager.LoadScene("Home");
     }
 
     public void Quit()
     {
-        Button_Sound.Play();
 #if UNITY_EDITOR
         EditorApplication.isPlaying = false;
 #else

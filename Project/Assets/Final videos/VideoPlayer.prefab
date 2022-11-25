@@ -189,6 +189,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1576116768504317236}
   - component: {fileID: 1576116768504317235}
+  - component: {fileID: 2546373016286591561}
   m_Layer: 0
   m_Name: VideoPlayer
   m_TagString: Untagged
@@ -247,6 +248,22 @@ VideoPlayer:
   m_WaitForFirstFrame: 1
   m_FrameReadyEventEnabled: 0
   m_VideoShaders: []
+--- !u!114 &2546373016286591561
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1576116768504317234}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 428ecd819967cc646b941c4fbcf2c6e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Video: {fileID: 1576116768504317235}
+  NextScene: level2
+  time: 0
+  currentTime: 0
 --- !u!1 &2841854492461991735
 GameObject:
   m_ObjectHideFlags: 0
@@ -383,7 +400,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 5d2db57d986b7f940905473fe4d948eb, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
