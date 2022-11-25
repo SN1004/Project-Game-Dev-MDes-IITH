@@ -23,7 +23,6 @@ public class EventManager : MonoBehaviour
     // For camera movement
     /*    [SerializeField] Vector2 Max;     
         [SerializeField] Vector2 Min;*/
-    private static int scenecount=0;
     public static bool Level2Open = false;
     private GameObject Level2SelectButton;
     
@@ -51,6 +50,11 @@ public class EventManager : MonoBehaviour
                 PlayPauseButton.sprite = Play;
                 Video.Play();
             }
+    }
+
+    public static void Level1ToLevel2()
+    {
+        SceneManager.LoadScene("level2");
     }
 
     public void BackHome()
@@ -91,7 +95,6 @@ public class EventManager : MonoBehaviour
     public void Next()
     {
         Button_Sound.Play();
-        scenecount += 1;
         SceneManager.LoadScene("Ending");
     }
 

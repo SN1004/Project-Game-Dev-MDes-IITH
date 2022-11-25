@@ -12,6 +12,8 @@ public class player_collect : MonoBehaviour
     public TextMeshProUGUI tm;
     public float timer = 0;
     public int total_time = 0;
+    public bool Win = false;
+    public GameObject LoadingCanvas;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,14 +22,13 @@ public class player_collect : MonoBehaviour
         bone3.SetActive(false);
         bone4.SetActive(false);
         bone5.SetActive(false);
-        
+        LoadingCanvas.SetActive(false);
     }
 
     private void OnTriggerEnter(Collider collision)
     {        
         if(collision.gameObject.CompareTag("bone1"))
         {
-            print("bone1");
             Destroy(collision.gameObject);
             bone1.SetActive(true);
             no_collected++;
@@ -35,7 +36,6 @@ public class player_collect : MonoBehaviour
         if (collision.gameObject.CompareTag("bone2"))
         {
             Destroy(collision.gameObject);
-            print("bone1");
             bone2.SetActive(true);
             no_collected++;
         }
@@ -43,21 +43,18 @@ public class player_collect : MonoBehaviour
         {
 
             Destroy(collision.gameObject);
-            print("bone1");
             bone3.SetActive(true);
             no_collected++;
         }
         if (collision.gameObject.CompareTag("bone4"))
         {
             Destroy(collision.gameObject);
-            print("bone1");
             bone4.SetActive(true);
             no_collected++;
         }
         if (collision.gameObject.CompareTag("bone5"))
         {
             Destroy(collision.gameObject);
-            print("bone1");
             bone5.SetActive(true);
             no_collected++;
         }
@@ -66,16 +63,22 @@ public class player_collect : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (no_collected == 5)
+        if (no_collected == 5 || Win)
         {
             collection_completed = true;
             total_time = (int)timer;
-            SceneManager.LoadScene("level2");
+            LoadingCanvas.SetActive(true);
+            StartCoroutine(Wait());
         }
         else
         {
             timer += Time.deltaTime;
             tm.text = (int)timer + "s";
         }
+    }
+    IEnumerator Wait()
+    {
+        yield return new WaitForSeconds(2);
+        EventManager.Level1ToLevel2();
     }
 }
