@@ -52,9 +52,14 @@ public class EventManager : MonoBehaviour
             }
     }
 
-    public static void Level1ToLevel2()
+    public static void LoadLevel2()
     {
         SceneManager.LoadScene("level2");
+    }
+
+    public static void LoadLevel1()
+    {
+        SceneManager.LoadScene("level1");
     }
 
     public void BackHome()
@@ -64,19 +69,16 @@ public class EventManager : MonoBehaviour
 
     public void LevelSelect()
     {
-        Button_Sound.Play();
         SceneManager.LoadScene("LevelSelect");
     }
 
     public void Level1Select()
     {
-        Button_Sound.Play();
         SceneManager.LoadScene("level1");
     }
 
     public void Level2Select()
     {
-        Button_Sound.Play();
         SceneManager.LoadScene("level2");
     }
 

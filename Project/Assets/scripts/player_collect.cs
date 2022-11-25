@@ -78,7 +78,7 @@ public class player_collect : MonoBehaviour
     }
     IEnumerator Wait()
     {
-        yield return new WaitForSeconds(2);
-        EventManager.Level1ToLevel2();
+        yield return new WaitForSeconds(5);
+        EventManager.LoadLevel2();
     }
 }
