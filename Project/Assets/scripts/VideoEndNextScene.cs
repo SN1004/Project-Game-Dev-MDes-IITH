@@ -23,6 +23,7 @@ public class VideoEndNextScene : MonoBehaviour
         currentTime = gameObject.GetComponent<VideoPlayer>().time;
         if (currentTime >= time-0.1f)
         {
+            Video.gameObject.SetActive(false);
             SceneManager.LoadScene(NextScene);
         }
     }
